@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor, HttpResponse
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import Data from '../../../assets/mock-data/data.json'
 import { environment } from '../../../environments/environment';
+import Data from '../../../assets/mock-data/data.json'
 
 @Injectable()
 export class DataInterceptor implements HttpInterceptor {
