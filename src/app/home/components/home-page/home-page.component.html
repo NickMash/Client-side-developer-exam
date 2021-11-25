@@ -3,7 +3,7 @@
     [data]="data"
     [idColumnName]="idColumnName"
     (updatedData)="updateTableData($event)"
+    (addNewTableRow)="addNewRow()"
     (deleteTableRow)="deleteRow($event)"
   ></app-table>
-  <button class="add_button" (click)="addNewRow()">+</button>
 </main>

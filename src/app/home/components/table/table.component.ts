@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Result } from '../../models/server-result.interface';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Result, UpdateData } from '../../models/server-result.interface';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {
 
@@ -13,25 +14,16 @@ export class TableComponent implements OnInit {
 
   @Input() data: Result[];
   @Input() idColumnName: string;
-  @Output() updatedData = new EventEmitter<{event: any, columnName: string, row: Result, index: number}>();
+  @Output() updatedData = new EventEmitter<UpdateData>();
   @Output() deleteTableRow = new EventEmitter<number>();
+  @Output() addNewTableRow = new EventEmitter();
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tableData = this.data;
     this.setUniqueKeysForHeader();
   }
 
-  getCellContent(columnKey: string, row: Result): string | number {
-    const cellValue = row[columnKey];
-    if (!cellValue && typeof cellValue === 'boolean') {
-      return cellValue.toString();
-    } else if (!cellValue && cellValue !== '') {
-      return '---';
-    }
-    return cellValue;
-  }
-
-  setUniqueKeysForHeader() {
+  private setUniqueKeysForHeader(): void {
     let uniqueKeys = new Set();
     this.tableData.forEach((item: Result) => {
       for (let key in item) {
@@ -43,11 +35,23 @@ export class TableComponent implements OnInit {
     this.uniqueTableKeys = uniqueKeysArray as string[];
   }
 
-  updateData(event: any, columnName: string, row: Result, index: number) {
+  getCellContent(columnKey: string, row: Result): string | number {
+    const cellValue = row[columnKey];
+    if ((!cellValue && cellValue !== '') || typeof cellValue === 'boolean') {
+      return '';
+    }
+    return cellValue;
+  }
+
+  updateData(event: any, columnName: string, row: Result, index: number): void {
     this.updatedData.emit({event, columnName, row, index});
   }
 
-  deleteRow(id: number) {
+  addNewRow(): void {
+    this.addNewTableRow.emit();
+  }
+
+  deleteRow(id: number): void {
     this.deleteTableRow.emit(id);
   }
 }

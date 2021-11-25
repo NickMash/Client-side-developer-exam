@@ -107,3 +107,24 @@
   border: none;
   background-color: rgba(240, 248, 255, 0.48);
 }
+.add_button {
+  background-color: #b3b8de;
+  border-radius: 3px;
+  border: none;
+  height: 50px;
+  width: 600px;
+  display: inline-block;
+  margin: 20px auto;
+  font-size: 250%;
+  color: #686e93;
+}
+.add_button:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  color: #535b90;
+  background-color: #a5abd5;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+}

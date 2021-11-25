@@ -9,7 +9,7 @@
           <div class="delete_button_cell">
             <button class="delete_button" (click)="deleteRow(row[idColumnName])">x</button>
           </div>
-          <div class="static_cell">{{row[idColumnName]?.toString() || '---'}}</div>
+          <div class="static_cell">{{row[idColumnName]?.toString() || ''}}</div>
         </div>
       </div>
       <div class="column" *ngFor="let columnName of uniqueTableKeys">
@@ -19,6 +19,7 @@
         <div class="cell">
           <input
             class="cell_input"
+            maxlength="15"
             [value]="getCellContent(columnName, row)"
             (input)="updateData($event, columnName, row, index)"
           >
@@ -27,3 +28,4 @@
     </div>
   </div>
 </div>
+<button class="add_button" (click)="addNewRow()">+</button>
