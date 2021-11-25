@@ -1,0 +1,9 @@
+<main class="main__container">
+  <app-table
+    [data]="data"
+    [idColumnName]="idColumnName"
+    (updatedData)="updateTableData($event)"
+    (deleteTableRow)="deleteRow($event)"
+  ></app-table>
+  <button class="add_button" (click)="addNewRow()">+</button>
+</main>

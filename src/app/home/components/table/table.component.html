@@ -1,0 +1,29 @@
+<div class="table">
+  <div class="columns">
+    <div class="row" *ngFor="let row of tableData; let index = index">
+      <div class="columns">
+        <div class="header_id" *ngIf="index === 0">
+          {{idColumnName.toUpperCase()}}
+        </div>
+        <div class="static_row">
+          <div class="delete_button_cell">
+            <button class="delete_button" (click)="deleteRow(row[idColumnName])">x</button>
+          </div>
+          <div class="static_cell">{{row[idColumnName]?.toString() || '---'}}</div>
+        </div>
+      </div>
+      <div class="column" *ngFor="let columnName of uniqueTableKeys">
+        <div class="header_cell" *ngIf="index === 0">
+          {{columnName}}
+        </div>
+        <div class="cell">
+          <input
+            class="cell_input"
+            [value]="getCellContent(columnName, row)"
+            (input)="updateData($event, columnName, row, index)"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+.table {
+  display: flex;
+  margin: auto;
+}
+.columns {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px #1a1a1c solid;
+}
+.row {
+  display: flex;
+}
+.header_id {
+  border-top: 4px #1a1a1c solid;
+  border-left: 4px #1a1a1c solid;
+  display: inline-block;
+  width: 95px;
+  height: 55px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  overflow-wrap: break-word;
+  text-align: center;
+  background-color: #99a0cd;
+  margin-left: -3px;
+  align-self: flex-end;
+}
+.static_row {
+  display: flex;
+}
+.static_row:nth-child(2) {
+  border-top: 2px #1a1a1c solid;
+}
+.delete_button_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-top: 1px #1a1a1c solid;
+  border-right: 1px #1a1a1c solid;
+  text-align: justify;
+  padding: 5px;
+}
+.delete_button {
+  background-color: #b3b8de;
+  border-radius: 3px;
+  border: none;
+  height: 30px;
+  width: 30px;
+  font-size: 150%;
+  color: #d11717;
+  font-family: Calibri, monospace;
+}
+.delete_button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #a5abd5;
+}
+.static_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 85px;
+  padding: 5px;
+  font-family: Roboto;
+  border-top: 1px #1a1a1c solid;
+  border-left: 1px #1a1a1c solid;
+  border-right: 1px #1a1a1c solid;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  border: 1px #1a1a1c solid;
+  width: 100%;
+  color: #1a1a1c;
+}
+.header_cell {
+  border-top: 3px #1a1a1c solid;
+  border-bottom: 3px #1a1a1c solid;
+  border-left: 4px #1a1a1c solid;
+  display: inline-block;
+  width: 95px;
+  height: 55px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  overflow-wrap: break-word;
+  text-align: center;
+  background-color: #b4b7ca;
+  margin-left: -3px;
+}
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 85px;
+  padding: 5px;
+  font-family: Roboto;
+}
+.cell_input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  border: none;
+  background-color: rgba(240, 248, 255, 0.48);
+}
